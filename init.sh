@@ -72,21 +72,25 @@ systemctl enable --now snapd.socket
 
 echo '✅ snapd 安装成功。'
 
-ln -s /var/lib/snapd/snap ~/snap
-
 # 安装certbot
 snap install --classic certbot
 
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
 echo '✅ certbot 安装成功。'
 
-echo ''
-echo ''
+mkdir ~/service
+
+echo
+echo
 echo '-------------------------'
-echo ''
+echo
 echo '✅ 机器初始化成功。'
-echo '⚙️ 自动安装https证书'
+echo
+echo '⚙️  自动安装https证书'
 echo 'certbot --nginx'
-echo '📦 SSH密钥'
+echo
+echo '📦 SSH 密钥生成'
 echo 'ssh-keygen -t rsa -C "aws-ec2-instance"'
-echo ''
+echo
 echo '-------------------------'
