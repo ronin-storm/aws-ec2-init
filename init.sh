@@ -7,6 +7,9 @@
 # Run: ./init.sh
 # ******************************************************************************
 
+# 其他依赖安装
+sudo yum install -y vim wget
+
 # nginx 依赖
 sudo yum install -y gcc pcre-devel zlib-devel openssl openssl-devel
 
@@ -24,9 +27,6 @@ yum install -y git
 
 # ssh 密钥
 ssh-keygen -t rsa -C "aws-ec2-instance"
-
-# 安装wget
-sudo yum install -y wget
 
 # 安装nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -64,7 +64,3 @@ snap install --classic certbot
 echo '✅ 机器初始化成功。'
 echo '⚙️ 自动安装https证书'
 echo 'certbot --nginx'
-
-
-
-
