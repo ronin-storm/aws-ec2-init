@@ -72,8 +72,10 @@ systemctl enable --now snapd.socket
 
 echo '✅ snapd 安装成功。'
 
+sudo ln -s /var/lib/snapd/snap /snap
+
 # 安装certbot
-snap install --classic certbot
+sudo snap install --classic certbot
 
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
