@@ -25,11 +25,21 @@ sudo systemctl start nginx.service
 # 开机启动nginx
 sudo systemctl enable nginx.service
 
+echo '✅ nginx 安装成功。'
+
 # 安装git
 yum install -y git
 
+echo '✅ git 安装成功。'
+
 # 安装nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+echo '✅ nvm 安装完毕。'
 
 nvm install 16
 
@@ -39,11 +49,17 @@ node -v
 
 npm -v
 
+echo '✅ node 默认版本设置完毕。'
+
 # cnpm安装
 npm install -g cnpm --registry=https://registry.npmmirror.com
 
+echo '✅ cnpm 安装成功。'
+
 # pm2
 cnpm i -g pm2
+
+echo '✅ pm2 安装成功。'
 
 # snapd 依赖安装 
 sudo yum install -y epel-release
@@ -54,15 +70,23 @@ sudo yum install -y snapd
 # 开机启动 snapd
 systemctl enable --now snapd.socket
 
-cd ~/
+echo '✅ snapd 安装成功。'
 
-ln -s /var/lib/snapd/snap /snap
+ln -s /var/lib/snapd/snap ~/snap
 
 # 安装certbot
 snap install --classic certbot
 
+echo '✅ certbot 安装成功。'
+
+echo ''
+echo ''
+echo '-------------------------'
+echo ''
 echo '✅ 机器初始化成功。'
 echo '⚙️ 自动安装https证书'
 echo 'certbot --nginx'
 echo '📦 SSH密钥'
 echo 'ssh-keygen -t rsa -C "aws-ec2-instance"'
+echo ''
+echo '-------------------------'
