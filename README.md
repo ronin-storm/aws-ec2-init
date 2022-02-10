@@ -29,8 +29,8 @@ server {
     }
     
     location /favicon.ico{
-	    return 200;
-	    access_log off;
+	return 200;
+	access_log off;
      }
 }
 ```
