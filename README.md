@@ -27,6 +27,7 @@ server {
     location / {
         proxy_pass http://localhost:3000;
     }
+    
     location /favicon.ico{
 	    return 200;
 	    access_log off;
