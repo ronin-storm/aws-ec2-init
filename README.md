@@ -35,8 +35,12 @@ server {
 }
 ```
 
-## Iptables
+## Network
 
 ```bash
 iptables -I INPUT -p tcp --dport 3000 -j ACCEPT
+```
+
+```bash
+setsebool -P httpd_can_network_connect 1
 ```
