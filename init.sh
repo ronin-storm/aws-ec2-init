@@ -16,6 +16,9 @@ sudo yum install -y gcc pcre-devel zlib-devel openssl openssl-devel
 # 添加nginx资源
 rpm -Uvh  http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
+# 更改时区
+timedatectl set-timezone Asia/Shanghai
+
 # nginx 安装
 sudo yum install -y nginx
 
