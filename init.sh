@@ -8,7 +8,7 @@
 # ******************************************************************************
 
 # 其他依赖安装
-sudo yum install -y vim wget
+sudo yum install -y vim wget unzip zip
 
 # nginx 依赖
 sudo yum install -y gcc pcre-devel zlib-devel openssl openssl-devel
