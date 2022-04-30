@@ -41,6 +41,26 @@ server {
 }
 ```
 
+```bash
+upstream upstream_name{
+    server 49.232.196.238;
+}
+server {
+    listen 80;
+    server_name drive.progo.cc;
+    add_header 'Access-control-AlLow-Origin' '*';
+    add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+    add_header 'Access-Control-Allow-Headers' 'Origin,X-Requested-With,Content-Type,Accept,Authorization';
+
+    location / {
+        proxy_pass http://upstream_name;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
 ## Network
 
 ```bash
