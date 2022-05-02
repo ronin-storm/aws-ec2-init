@@ -55,12 +55,12 @@ npm -v
 echo '✅ node 默认版本设置完毕。'
 
 # cnpm安装
-npm install -g cnpm --registry=https://registry.npmmirror.com
+#npm install -g cnpm --registry=https://registry.npmmirror.com
 
-echo '✅ cnpm 安装成功。'
+#echo '✅ cnpm 安装成功。'
 
 # pm2
-cnpm i -g pm2
+npm i -g pm2
 
 echo '✅ pm2 安装成功。'
 
