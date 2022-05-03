@@ -120,6 +120,25 @@ stdout_logfile=/var/log/cloudreve.log
 environment=CODENATION_ENV=prod
 ```
 
+通过全局配置文件启动 supervisor：
+
+```bash
+supervisord -c /etc/supervisord.conf
+```
+
+日后你可以通过以下指令管理 Cloudreve 进程：
+
+```bash
+# 启动
+sudo supervisorctl start cloudreve
+
+# 停止
+sudo supervisorctl stop cloudreve
+
+# 查看状态
+sudo supervisorctl status cloudreve
+```
+
 ## Network
 
 ```bash
