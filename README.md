@@ -74,6 +74,52 @@ server {
 }
 ```
 
+## 其他项
+
+依赖安装
+
+```bash
+# 安装 supervisor
+sudo yum install python-setuptools
+sudo easy_install supervisor
+
+# 初始化全局配置文件
+sudo touch /etc/supervisord.conf
+sudo echo_supervisord_conf > /etc/supervisord.conf
+```
+
+编辑全局配置文件：
+
+```bash
+sudo vim /etc/supervisord.conf
+```
+
+将文件底部的 `[include]` 分区注释符号 `;` 删除，加入新的配置文件包含路径：
+```bash
+[include]
+files = /etc/supervisor/conf/*.conf
+```
+
+创建 Cloudreve 应用配置所在文件目录，并创建打开配置文件：
+
+```bash
+sudo mkdir -p /etc/supervisor/conf
+sudo vim /etc/supervisor/conf/cloudreve.conf
+```
+
+粘贴以下内容
+
+```bash
+[program:cloudreve]
+directory=/data
+command=/data/cloudreve
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/cloudreve.err
+stdout_logfile=/var/log/cloudreve.log
+environment=CODENATION_ENV=prod
+```
+
 ## Network
 
 ```bash
