@@ -33,7 +33,7 @@ certbot --nginx
 
 ## Nginx Conf
 
-**普通机器环境配置**
+### 普通机器环境配置
 
 ```bash
 server {
@@ -51,7 +51,8 @@ server {
 }
 ```
 
-**子节点机器环境配置**
+### 子节点机器环境配置
+
 ```bash
 server {
     listen       80;
@@ -71,6 +72,23 @@ server {
 	    return 200;
 	    access_log off;
      }
+}
+```
+
+### Gateway 转发
+
+```bash
+server {
+    listen 80;
+    server_name drive.progo.cc;
+
+    location / {
+    proxy_pass http://43.152.214.237;
+    proxy_http_version 1.1;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 }
 ```
 
