@@ -1,6 +1,7 @@
 # AWS EC2 Instance Init
 
 > AWS EC2 机器环境初始化
+> 子节点机器初始化：[点击前往](./node.md)
 
 安装项：
 - Nginx
