@@ -16,7 +16,7 @@
 **完整服务器环境初始化**
 
 ```bash
-curl -o- https://raw.githubusercontent.com/ronin-storm/aws-ec2-init/main/scripts/init.sh | bash
+curl -o- https://raw.githubusercontent.com/ronin-storm/linux-centos-init/main/scripts/init.sh | bash
 ```
 
 ## HTTPS
